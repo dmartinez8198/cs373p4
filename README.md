@@ -1,4 +1,4 @@
-# cs373project2
+# cs373project3
 
 This is a Facility Management System project for our Comp 373/473 Class. It's purpose is to instantiate the created objects using the Spring Framework to create the dependencies at runtime.
 

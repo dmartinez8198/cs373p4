@@ -11,7 +11,7 @@
 
     <bean id="interface_facilityInfo" class="com.fms.main.FacilityInfo" scope="prototype"/>
     <bean id="Facility" class="com.fms.main.FacilityInfo" scope="prototype">
-        <property name="interface_facilityInfo" ref="interface_facilityInfo"></property>
+        <property name="interface_facilityInfo" ref="interface_facilityInfo"/>
     </bean>
     <bean id="interface_Maintenance" class="com.fms.maintenance.Maintenance" scope="prototype"/>
     <bean id="Inspection" class="com.fms.usage.Inspection" scope="prototype"/>

@@ -1,5 +1,7 @@
 package src.Model;
 
+import java.util.ArrayList;
+
 public class Maintenance implements interface_Maintenance{
     //instantiates variables
     private int maintenanceID;
@@ -8,8 +10,19 @@ public class Maintenance implements interface_Maintenance{
     private String maintenanceDetails;
     private int cost;
     private Facility facility;
+    private MaintenanceSchedule maintenanceSchedule;
+    private ArrayList<MaintenanceOrder> maintenanceOrders;
+    private MaintenanceLog maintenanceLog;
+    private ArrayList<MaintenanceRequest> maintenanceRequests;
 
 
+    public Maintenance(MaintenanceSchedule maintenanceSchedule, MaintenanceLog maintenanceLog)
+    {
+        this.maintenanceSchedule = maintenanceSchedule;
+        this.maintenanceOrders = new ArrayList<MaintenanceOrder>();
+        this.maintenanceLog = maintenanceLog;
+        this.maintenanceRequests = new ArrayList<MaintenanceRequest>();
+    }
     //getter for maintenance id
     public int getMaintenanceID() {
         return maintenanceID;
@@ -64,10 +77,70 @@ public class Maintenance implements interface_Maintenance{
     public Facility getFacility() {
         return facility;
     }
-
     //setter for facility
     public void setFacility(Facility facility) {
         this.facility = facility;
     }
 
+    public MaintenanceSchedule getMaintenanceSchedule()
+    {
+        return maintenanceSchedule;
+    }
+
+    public void setMaintenanceSchedule(MaintenanceSchedule maintenanceSchedule)
+    {
+        this.maintenanceSchedule = maintenanceSchedule;
+    }
+
+    public MaintenanceLog getMaintenanceLog()
+    {
+        return maintenanceLog;
+    }
+
+    public void setMaintenanceLog(MaintenanceLog maintenanceLog)
+    {
+        this.maintenanceLog = maintenanceLog;
+    }
+
+    public ArrayList<MaintenanceOrder> getMaintenanceOrders()
+    {
+        return maintenanceOrders;
+    }
+
+    public void setMaintenanceOrders(ArrayList<MaintenanceOrder> maintenanceOrders)
+    {
+        this.maintenanceOrders = maintenanceOrders;
+    }
+
+    public ArrayList<MaintenanceRequest> getMaintenanceRequests()
+    {
+        return maintenanceRequests;
+    }
+
+    public void setMaintenanceRequests(ArrayList<MaintenanceRequest> maintenanceRequest)
+    {
+        this.maintenanceRequests = maintenanceRequest;
+    }
+
+    public void addMaintenanceRequest(MaintenanceRequest maintenanceRequest)
+    {
+        maintenanceRequests.add(maintenanceRequest);
+    }
+
+    public void addOrderToSchedule(MaintenanceOrder maintenanceOrder, Interval interval)
+    {
+        maintenanceSchedule.getMaintenanceSchedule().put(maintenanceOrder, interval);
+        maintenanceOrders.remove(maintenanceOrder);
+    }
+
+    public void addMaintenanceOrder(MaintenanceOrder maintenanceOrder)
+    {
+        maintenanceOrders.add(maintenanceOrder);
+    }
+
+    public void addOrderToLog(MaintenanceOrder maintenanceOrder)
+    {
+        maintenanceLog.getMaintenanceLog().put(maintenanceOrder, maintenanceSchedule.getMaintenanceSchedule().get(maintenanceOrder));
+        maintenanceSchedule.getMaintenanceSchedule().remove(maintenanceOrder);
+    }
 }

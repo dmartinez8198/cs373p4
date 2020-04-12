@@ -2,6 +2,10 @@ package src.View;
 
 import src.Model.*;
 
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 public class FacilityClient {
 
     public static void main(String args[]) {

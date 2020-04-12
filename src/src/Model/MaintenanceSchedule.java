@@ -12,13 +12,13 @@ public class MaintenanceSchedule {
     }
 
     //getter for maintenance schedule
-    public HashMap<MaintenanceOrder, Interval> getSchedule()
+    public HashMap<MaintenanceOrder, Interval> getMaintenanceSchedule()
     {
         return schedule;
     }
 
     //setter for maintenance schedule
-    public void setSchedule(HashMap<MaintenanceOrder, Interval> schedule)
+    public void setMaintenanceSchedule(HashMap<MaintenanceOrder, Interval> schedule)
     {
         this.schedule = schedule;
     }

@@ -1,6 +1,9 @@
 package src.Model;
 
+import src.DAL.*;
 import java.util.ArrayList;
+import java.util.Collection;
+
 
 public class Building implements Facility {
     //instantiate variables
@@ -18,12 +21,6 @@ public class Building implements Facility {
         this.use = use;
         this.maintenance = maintenance;
         this.inspections = new ArrayList<Inspection>();
-    }
-    
-    //getter for facilityinfo
-    public FacilityInfo getFacilityInfo()
-    {
-        return facilityInfo;
     }
 
     //setter for facilityinfo
@@ -74,9 +71,114 @@ public class Building implements Facility {
         return inspections;
     }
 
-    //adds inspections to arraylist
-    public void addInspection(Inspection inspection)
+
+    public Collection<Facility> listFacilities()
     {
-        inspections.add(inspection);
+        return FacilityDAO.listFacilities();
+    }
+
+    public FacilityInfo getFacilityInfo()
+    {
+        return FacilityDAO.getFacilityInfo(this);
+    }
+
+    public int requestFacilityCapacity()
+    {
+        return FacilityDAO.getFacilityCapacity(this.);
+    }
+
+    public Facility addNewFacility()
+    {
+        return FacilityDAO.addNewFacility(this);
+    }
+
+    public void addFacilityDetail(FacilityInfo fi)
+    {
+        FacilityDAO.addFacilityDetail(this, fi);
+    }
+
+    public void removeFacility()
+    {
+        FacilityDAO.removeFacility(this);
+    }
+
+    public void addInspection(Inspection ins)
+    {
+        FacilityDAO.addInspection(this, ins);
+    }
+
+    public boolean isInUseDuringInterval(Date d, Time start, Time end)
+    {
+        return UseDAO.inUseDuringInterval(this, d, start, end);
+    }
+
+    public boolean isInUseDuringInterval(Week w, Time start, Time end)
+    {
+        return UseDAO.inUseDuringInterval(this, w, start, end);
+    }
+
+    public void assignFacilityToUse(UseRequest ur)
+    {
+        UseDAO.assignFacilityToUse(this, ur);1
+    }
+
+    public void vacateFacility()
+    {
+        UseDAO.vacateFacility(this);
+    }
+
+    public ArrayList<Inspection> listInspections()
+    {
+        return UseDAO.listInspections(this);
+    }
+
+    public UseSchedule listActualUsage()
+    {
+        return UseDAO.listActualUsage(this);
+    }
+
+    public double calcUsageRate()
+    {
+        return UseDAO.calcUsageRate(this);
+    }
+
+    public void makeFacilityMaintenanceRequest(MaintenanceRequest mr)
+    {
+        MaintenanceDAO.makeFacilityMaintenanceRequest(this, mr);
+    }
+
+    public void scheduleMaintenance(MaintenanceOrder mo, Interval i)
+    {
+        MaintenanceDAO.scheduleMaintenance(this, mo, i);
+    }
+
+    public int calcMaintenanceCostForFacility()
+    {
+        return MaintenanceDAO.calcMaintenanceCostForFacility(this);
+    }
+
+    public String calcProblemRateForFacility()
+    {
+        return MaintenanceDAO.calcProblemRateForFacility(this);
+    }
+
+    public int calcDownTimeForFacility()
+    {
+        return MaintenanceDAO.calcDownTimeForFacility(this);
+    }
+
+    public ArrayList<MaintenanceRequest> listMaintRequests()
+    {
+        return MaintenanceDAO.listMaintRequests(this);
+    }
+
+    public ArrayList<MaintenanceOrder> listMaintenance()
+    {
+        return MaintenanceDAO.listMaintenance(this);
+    }
+
+    public MaintenanceSchedule listFacilityProblems()
+    {
+        return MaintenanceDAO.listFacilityProblems(this);
     }
 }

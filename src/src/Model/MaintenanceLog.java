@@ -12,13 +12,13 @@ public class MaintenanceLog {
     }
 
     //getter for maintenance log
-    public HashMap<MaintenanceOrder, Interval> getLog()
+    public HashMap<MaintenanceOrder, Interval> getMaintenanceLog()
     {
         return log;
     }
 
     //setter for maintenance log
-    public void setLog(HashMap<MaintenanceOrder, Interval> log)
+    public void setMaitenanceLog(HashMap<MaintenanceOrder, Interval> log)
     {
         this.log = log;
     }

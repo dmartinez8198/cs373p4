@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
+<bean xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:context="http://www.springframework.org/schema/context"
     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
@@ -9,14 +9,70 @@
 
     <context:component-scan base-package="com.fms" />
 
-    <bean id="interface_facilityInfo" class="com.fms.main.FacilityInfo" scope="prototype"/>
+    <bean id="Building" class="com.fms.Building" scope="prototype">
+            <property name="FacilityInfo" ref="facilityInfo"/>
+            <property name="facilityCapacity" ref="facilityCapacity"/>
+            <property name="FacilityUse" ref="use"/>
+            <property name ="Maintenance" ref="maintenance"/>
+            <property name ="Inspection" ref="inspections"
+    </bean>
+
+    <bean id="FacilityInfo" class="com.fms.main.FacilityInfo" scope="prototype"/>
     <bean id="Facility" class="com.fms.main.FacilityInfo" scope="prototype">
         <property name="interface_facilityInfo" ref="interface_facilityInfo"/>
     </bean>
-    <bean id="interface_Maintenance" class="com.fms.maintenance.Maintenance" scope="prototype"/>
-    <bean id="Inspection" class="com.fms.usage.Inspection" scope="prototype"/>
-    <bean id="FacilityUse" class="com.fms.usage.FacilityUse" scope="prototype"/>
 
-    <bean id="maintenanceService" class="com.fms.services.MaintenanceService" scope="prototype"/>
+
+    <bean id="UseRequest" class="com.fms.UseRequest" scope="prototype">
+        <constructor-arg>
+            <list>
+                <ref bean="UseRequest"/>
+            </list>
+        </constructor-arg>
+    </bean>
+    <bean id="UseSchedule" class="com.fms.UseSchedule" scope="prototype"/>
+
+    <bean id="maintenanace" class="com.fms.interface_Maintenance" scope="prototype">
+        <property name="MaintenanceSchedule" ref="MaintenanceSchedule"/>
+        <property name="MaintenanceOrders" ref="MaintenanceOrders" />
+        <property name="MaintenanceLog" ref="MaintenanceLog" />
+        <property name="MaintenanceRequest" ref="MaintenanceRequest" />
+    </bean>
+
+    <bean id="MaintenanceLog" class="com.fms.MaintenanceLog" scope="prototype"/>
+    <bean id="MaintenanceOrders" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <ref bean="MaintenanceRequest"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="Inspection" class="com.fms.usage.Inspection" scope="prototype">
+        <property name ="Interval" ref="Interval" />
+    </bean>
+
+    <bean id="InspectionsList" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <ref bean="Inspection"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="Interval" class="com.fms.Interval" scope="prototype">
+        <property name="Week" ref="Week"/>
+        <property name="startTime" ref="startTime"/>
+        <property name="endTime" ref="endTime"/>
+        <property name="TimeSpan" ref="TimeSpan"/>
+        <property name="Date" ref="Date"/>
+    </bean>
+
+    <bean id="Week" class="com.fms.Week" scope="prototype"/>
+    <bean id="Date" class="com.fms.Date" scope="prototype"/>
+    <bean id="TimeSpan" class="com.fms.TimeSpan" scope="prototype"/>
+    <bean id="Date" class="com.fms.Date" scope="prototype"/>
+    <bean id="startTime" class="com.fms.Time" scope="prototype"/>
+    <bean id="endTime" class="com.fms.Time" scope="prototype"/>
 
 </beans>

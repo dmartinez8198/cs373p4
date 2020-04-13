@@ -19,7 +19,7 @@ public interface interface_Maintenance {
     public ArrayList<MaintenanceOrder> getMaintenanceOrders();
     public ArrayList<MaintenanceRequest> getMaintenanceRequests();
     public void addMaintenanceRequest(MaintenanceRequest maintenanceRequest);
-    public void addOrderToSchedule(MaintenanceOrder maintenanceOrder, Interval, Interval intervalSlot);
+    public void addOrderToSchedule(MaintenanceOrder maintenanceOrder, Interval Interval, Interval intervalSlot);
     public void addMaintenanceOrder(MaintenanceOrder maintenanceOrder);
     public void addOrderToLog(MaintenanceOrder maintenanceOrder);
     public String getMaintenanceDetails();

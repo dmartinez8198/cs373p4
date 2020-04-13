@@ -3,6 +3,7 @@ package src.Model;
 import java.util.HashMap;
 
 public class MaintenanceSchedule {
+
     //instantiates schedule
     private HashMap<MaintenanceOrder, Interval> schedule;
 
@@ -21,6 +22,10 @@ public class MaintenanceSchedule {
     public void setMaintenanceSchedule(HashMap<MaintenanceOrder, Interval> schedule)
     {
         this.schedule = schedule;
+    }
+
+    public HashMap getSchedule(){
+        return schedule;
     }
 }
 

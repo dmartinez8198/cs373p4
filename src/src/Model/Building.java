@@ -6,28 +6,29 @@ import java.util.Collection;
 
 
 public class Building implements Facility {
-    //instantiate variables
-    private FacilityInfo facilityInfo;
-    private FacilityCapacity facilityCapacity;
-    private FacilityUse use;
-    private FacilityMaintenance maintenance;
-    private ArrayList<Inspection> inspections;
-    
-    //creates setters for the instantiated variables
-    public Building(FacilityInfo facilityInfo, FacilityCapacity facilityCapacity, FacilityUse use, FacilityMaintenance maintenance)
-    {
-        this.facilityInfo = facilityInfo;
-        this.facilityCapacity = facilityCapacity;
-        this.use = use;
-        this.maintenance = maintenance;
-        this.inspections = new ArrayList<Inspection>();
-    }
 
-    //setter for facilityinfo
-    public void setFacilityInfo(FacilityInfo facilityInfo)
-    {
-        this.facilityInfo = facilityInfo;
-    }
+        //instantiate variables
+        private FacilityInfo facilityInfo;
+        private FacilityCapacity facilityCapacity;
+        private FacilityUse use;
+        private FacilityMaintenance maintenance;
+        private Inspection inspections;
+
+        //creates setters for the instantiated variables
+    public Building(FacilityInfo facilityInfo, FacilityCapacity facilityCapacity, FacilityUse use, FacilityMaintenance maintenance)
+        {
+            this.facilityInfo = facilityInfo;
+            this.facilityCapacity = facilityCapacity;
+            this.use = use;
+            this.maintenance = maintenance;
+            this.inspections = new Inspection();
+        }
+
+        //setter for facilityinfo
+        public void setFacilityInfo(FacilityInfo facilityInfo)
+        {
+            this.facilityInfo = facilityInfo;
+        }
 
     //getter for facilitycapacity
     public FacilityCapacity getFacilityCapacity()
@@ -65,8 +66,14 @@ public class Building implements Facility {
         this.maintenance = maintenance;
     }
 
+    //setter for Inspections
+    public void setInspections(Inspection inspections)
+    {
+        this.inspections = inspections;
+    }
+
     //getter for facility inspections
-    public ArrayList<Inspection> getInspections()
+    public Inspection getInspections()
     {
         return inspections;
     }
@@ -84,7 +91,7 @@ public class Building implements Facility {
 
     public int requestFacilityCapacity()
     {
-        return FacilityDAO.getFacilityCapacity(this.);
+        return facilityCapacity.getFacilityCapacity();
     }
 
     public Facility addNewFacility()
@@ -107,7 +114,7 @@ public class Building implements Facility {
         FacilityDAO.addInspection(this, ins);
     }
 
-    public boolean isInUseDuringInterval(Date d, Time start, Time end)
+    public boolean InUseDuringInterval(Date d, Time start, Time end)
     {
         return UseDAO.inUseDuringInterval(this, d, start, end);
     }

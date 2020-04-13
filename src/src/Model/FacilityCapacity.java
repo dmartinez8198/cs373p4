@@ -1,4 +1,5 @@
 package src.Model;
+import src.DAL.FacilityDAO;
 
 public class FacilityCapacity{
     //instantiates variables

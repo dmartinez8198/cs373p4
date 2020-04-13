@@ -12,6 +12,9 @@ public class Inspection {
         this.interval = interval;
     }
 
+    public Inspection() {
+    }
+
     //getter for facility inspection type
     public String getInspectionType()
     {

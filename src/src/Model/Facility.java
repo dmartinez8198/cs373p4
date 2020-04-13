@@ -13,7 +13,7 @@ public interface Facility {
     void setFacilityUse(FacilityUse use);
     FacilityMaintenance getFacilityMaintenance();
     void setFacilityMaintenance(FacilityMaintenance Maintenance);
-    ArrayList<Inspection> getInspections();
+    Inspection getInspections();
     void setInspections(ArrayList<Inspection> inspections);
     public void scheduleInspection(Inspection ins);
 
@@ -21,14 +21,14 @@ public interface Facility {
     Collection<Facility> listFacilities();
     FacilityCapacity getFacilityID();
     int requestFacilityCapacity();
-    Building addNewFacility();
+    Facility addNewFacility();
     void addFacilityDetail(FacilityInfo fi);
     void removeFacility();
     void addInspection(Inspection ins);
 
     //UseDAO interactions
     public boolean inUseDuringInterval(Date d, Time start, Time end);
-    public boolean inUseDuringInterval(Week w, Time start, Time end);
+    public boolean isInUseDuringInterval(Week w, Time start, Time end);
     public void assignFacilityToUse(UseRequest ur);
     public void vacateFacility();
     public ArrayList<Inspection> listInspections();

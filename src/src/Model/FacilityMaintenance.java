@@ -70,7 +70,7 @@ public class FacilityMaintenance {
     //adds maintenance order to maintenance log
     public void addOrderToLog(MaintenanceOrder maintenanceOrder)
     {
-        maintenanceLog.getLog().put(maintenanceOrder, maintenanceSchedule.getSchedule().get(maintenanceOrder));
+        maintenanceLog.getLog().put(maintenanceOrder, (Interval) maintenanceSchedule.getSchedule().get(maintenanceOrder));
         maintenanceSchedule.getSchedule().remove(maintenanceOrder);
     }
 }

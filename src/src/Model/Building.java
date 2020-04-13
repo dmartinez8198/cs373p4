@@ -99,6 +99,10 @@ public class Building implements Facility {
         return FacilityDAO.addNewFacility(this);
     }
 
+    public FacilityCapacity getFacilityID() {
+        return getFacilityID();
+    }
+
     public void addFacilityDetail(FacilityInfo fi)
     {
         FacilityDAO.addFacilityDetail(this, fi);
@@ -114,7 +118,7 @@ public class Building implements Facility {
         FacilityDAO.addInspection(this, ins);
     }
 
-    public boolean InUseDuringInterval(Date d, Time start, Time end)
+    public boolean inUseDuringInterval(Date d, Time start, Time end)
     {
         return UseDAO.inUseDuringInterval(this, d, start, end);
     }
@@ -126,7 +130,7 @@ public class Building implements Facility {
 
     public void assignFacilityToUse(UseRequest ur)
     {
-        UseDAO.assignFacilityToUse(this, ur);1
+        UseDAO.assignFacilityToUse(this, ur);
     }
 
     public void vacateFacility()

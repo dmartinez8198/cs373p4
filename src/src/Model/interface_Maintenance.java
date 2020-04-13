@@ -13,13 +13,13 @@ public interface interface_Maintenance {
     public int getCost();
     public void setCost(int cost);
     public MaintenanceSchedule getMaintenanceSchedule();
-    public void setMaitenanceSchedule(MaintenanceSchedule maintenanceSchedule);
-    public MaintenanceLog getMaitenanceLog();
+    public void setMaintenanceSchedule(MaintenanceSchedule maintenanceSchedule);
+    public MaintenanceLog getMaintenanceLog();
     public void setMaintenanceLog(MaintenanceLog maintenanceLog);
     public ArrayList<MaintenanceOrder> getMaintenanceOrders();
     public ArrayList<MaintenanceRequest> getMaintenanceRequests();
     public void addMaintenanceRequest(MaintenanceRequest maintenanceRequest);
-    public void addOrderToSchedule(MaintenanceOrder maintenanceOrder, Interval Interval, Interval intervalSlot);
+    public void addOrderToSchedule(MaintenanceOrder maintenanceOrder, Interval Interval);
     public void addMaintenanceOrder(MaintenanceOrder maintenanceOrder);
     public void addOrderToLog(MaintenanceOrder maintenanceOrder);
     public String getMaintenanceDetails();

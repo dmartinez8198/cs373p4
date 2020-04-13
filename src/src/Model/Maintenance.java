@@ -3,6 +3,7 @@ package src.Model;
 import java.util.ArrayList;
 
 public class Maintenance implements interface_Maintenance{
+
     //instantiates variables
     private int maintenanceID;
     private int maintenanceRequestID;

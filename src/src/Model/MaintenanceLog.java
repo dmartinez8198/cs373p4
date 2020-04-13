@@ -22,4 +22,8 @@ public class MaintenanceLog {
     {
         this.log = log;
     }
+
+    public HashMap<MaintenanceOrder, Interval> getLog() {
+        return log;
+    }
 }

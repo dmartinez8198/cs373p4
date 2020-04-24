@@ -4,20 +4,20 @@ public class TestInspection extends Inspection
 {
   public TestInspection(){
     super();
+    this.inspectionType = "Test";
    }
    
-  public TestInspection(InspectionType inspectionType, Interval interval)
+  public TestInspection(String inspectionType, Interval interval)
   {
     super(inspectionType, Interval)
   }
   
-  public InspectionType getInspectionType()
+  public String getInspectionType()
   {
-    return new Test();
+    return "Test";
   }
   
-  @Override
-  public void setInspectionType(InspectionType inspectionType)
+  public void inspectionType(String inspectionType)
   {
     this.inspectionType = inspectionType;
   }
@@ -31,5 +31,11 @@ public class TestInspection extends Inspection
   public void setInterval(Interval interval)
   {
     this.interval = interval;
+  }
+  
+  @Override
+  public void acceptVisitor(Visitor visitor)
+  {
+    visitor.visit(this);
   }
 }

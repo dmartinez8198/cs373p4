@@ -48,7 +48,7 @@
         </constructor-arg>
     </bean>
 
-    <bean id="Inspection" class="com.fms.usage.Inspection" scope="prototype">
+    <bean id="Inspection" class="com.fms.inspection.InspectionInterface" scope="prototype">
         <property name ="Interval" ref="Interval" />
     </bean>
 

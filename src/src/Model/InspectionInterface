@@ -2,25 +2,23 @@ package src.Model;
 
 public class InspectionInterface extends Inspection
 {
-  private InspectionType inspectionType;
-  private Interval interval;
+  ArrayList<Inspection> inspections = new ArrayList<>();
   
-  public InspectionInterface(){}
-  
-  public InspectionInterface(InspectionType inspectionType, Interval interval)
-  {
-    this.inspectionType = inspectionType;
-    this.interval = interval;
+  public InspectionInterface(){
+    super();
   }
   
-  @Override
-  public InspectionType getInspectionType()
+  public InspectionInterface(String inspectionType, Interval interval)
   {
-    return this.inspectionType;
+    super(inspectionType, interval);
   }
   
-  @Override
-  public void setInspectionType(InspectionType inspectionType)
+  public String getInspectionType()
+  {
+    return inspectionType;
+  }
+  
+  public void inspectionType(String inspectionType)
   {
     this.inspectionType = inspectionType;
   }
@@ -30,8 +28,24 @@ public class InspectionInterface extends Inspection
     return interval;
   }
   
+  @Override
   public void setInterval(Interval interval)
   {
     this.interval = interval;
+  }
+  
+  @Override 
+  public void acceptVisitor(Visitor visitor){
+    visitor.visit(this);
+  }
+  
+  public void add(Inspection i)
+  {
+    inspections.add(i);
+  }
+  
+  public void remove(Inspection i)
+  {
+    inspections.remove(i);
   }
 }

@@ -4,19 +4,20 @@ public class FireInspection extends Inspection
 {
   public FireInspection() {
     super();
+    this.inspectionType = "Fire";
    }
    
-  public FireInspection(InspectionType inspectionType, Interval interval)
+  public FireInspection(String inspectionType, Interval interval)
   {
     super(inspectionType, interval);
   }
   
-  public InspectionType getInspectionType()
+  public String getInspectionType()
   {
-    return new Fire();
+    return "Fire";
   }
   @Override
-  public void setInspectionType(InspectionType inspectionType)
+  public void setInspectionType(String inspectionType)
   {
     this.inspectionType = inspectionType;
   }
@@ -29,5 +30,10 @@ public class FireInspection extends Inspection
   public void setInterval(Interval interval)
   {
     this.interval = interval;
+  }
+  
+  @Override
+  public void acceptVisitor(Visitor v){
+    visitor.visit(this);
   }
 }

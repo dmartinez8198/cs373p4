@@ -1,6 +1,6 @@
 package src.Model;
 
-public class TestType implements InspectionType
+public class Test implements InspectionType
 {
     @Override
     public String inspectionType()

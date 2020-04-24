@@ -16,16 +16,10 @@ public class Inspection {
     }
 
     //getter for facility inspection type
-    public String getInspectionType()
-    {
-        return inspectionType;
-    }
+    abstract public InspectionType getInspectionType();
 
     //setter for facility inspection type
-    public void setInspectionType(String inspectionType)
-    {
-        this.inspectionType = inspectionType;
-    }
+    abstract public void setInspectionType(InspectionType inspectionType);
 
     //getter for inspection interval
     public Interval getInterval()

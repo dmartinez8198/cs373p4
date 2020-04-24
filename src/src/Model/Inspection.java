@@ -1,9 +1,9 @@
 package src.Model;
 
-public class Inspection {
+public abstract class Inspection {
     //instantiates variables
-    private String inspectionType;
-    private Interval interval;
+    protected InspectionType inspectionType;
+    protected Interval interval;
 
     //method for setting variables
     public Inspection(String inspectionType, Interval interval)

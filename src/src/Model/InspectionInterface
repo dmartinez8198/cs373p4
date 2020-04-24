@@ -1,0 +1,37 @@
+package src.Model;
+
+public class InspectionInterface extends Inspection
+{
+  private InspectionType inspectionType;
+  private Interval interval;
+  
+  public InspectionInterface(){}
+  
+  public InspectionInterface(InspectionType inspectionType, Interval interval)
+  {
+    this.inspectionType = inspectionType;
+    this.interval = interval;
+  }
+  
+  @Override
+  public InspectionType getInspectionType()
+  {
+    return this.inspectionType;
+  }
+  
+  @Override
+  public void setInspectionType(InspectionType inspectionType)
+  {
+    this.inspectionType = inspectionType;
+  }
+  
+  public Interval getInterval()
+  {
+    return interval;
+  }
+  
+  public void setInterval(Interval interval)
+  {
+    this.interval = interval;
+  }
+}

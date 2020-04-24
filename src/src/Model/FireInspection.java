@@ -16,8 +16,7 @@ public class FireInspection extends Inspection
   {
     return "Fire";
   }
-  @Override
-  public void setInspectionType(String inspectionType)
+  public void inspectionType(String inspectionType)
   {
     this.inspectionType = inspectionType;
   }
@@ -26,14 +25,14 @@ public class FireInspection extends Inspection
   {
     return interval;
   }
-  
+  @Override
   public void setInterval(Interval interval)
   {
     this.interval = interval;
   }
   
   @Override
-  public void acceptVisitor(Visitor v){
+  public void acceptVisitor(Visitor visitor){
     visitor.visit(this);
   }
 }

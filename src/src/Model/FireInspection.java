@@ -15,7 +15,7 @@ public class FireInspection extends Inspection
   {
     return new Fire();
   }
-  
+  @Override
   public void setInspectionType(InspectionType inspectionType)
   {
     this.inspectionType = inspectionType;

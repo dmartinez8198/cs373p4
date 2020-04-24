@@ -2,7 +2,7 @@ package src.Model;
 
 public abstract class Inspection {
     //instantiates variables
-    protected InspectionType inspectionType;
+    protected String inspectionType;
     protected Interval interval;
 
     //method for setting variables
@@ -16,20 +16,16 @@ public abstract class Inspection {
     }
 
     //getter for facility inspection type
-    abstract public InspectionType getInspectionType();
+    abstract public String getInspectionType();
 
     //setter for facility inspection type
-    abstract public void setInspectionType(InspectionType inspectionType);
+    abstract public void inspectionType(String inspectionType);
 
     //getter for inspection interval
-    public Interval getInterval()
-    {
-        return interval;
-    }
+    abstract public Interval getInterval();
 
     //setter for inspection interval
-    public void setInterval(Interval interval)
-    {
-        this.interval = interval;
-    }
+    abstract public void setInterval(Interval interval);
+    
+    abstract public void acceptVisitor(Visitor visitor);
 }

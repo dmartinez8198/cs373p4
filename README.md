@@ -1,6 +1,6 @@
-# cs373project3
+# cs373project4
 
-This is a Facility Management System project for our Comp 373/473 Class. It's purpose is to instantiate the created objects using the Spring Framework to create the dependencies at runtime. This project also uses bridge and observer patterns.
+This is a Facility Management System project for our Comp 373/473 Class. It's purpose is to instantiate the created objects using the Spring Framework to create the dependencies at runtime. This project also uses the visitor pattern.
 
 The project has 3 main structures: the data acess layer, the model layer, and the view layer.
 The UML diagram shows the interactions between the three different layers as well as the interactions between the separate classes within the layers.
